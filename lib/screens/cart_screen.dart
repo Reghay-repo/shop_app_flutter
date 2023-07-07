@@ -31,7 +31,9 @@ class CartScreen extends StatelessWidget {
                   width: 10,
                 ),
                 FilledButton(onPressed: () {}, child: const Text('Order now')),
-                Chip(label: Text('\$ ${cartStore.totalAmount.toString()}'))
+                Chip(
+                    label:
+                        Text('\$ ${cartStore.totalAmount.toStringAsFixed(2)}'))
               ],
             ),
           ),
