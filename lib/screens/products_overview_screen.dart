@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/providers/cart.dart';
+import 'package:shop_app/screens/cart_screen.dart';
+import 'package:shop_app/widgets/cart_badge.dart';
 import 'package:shop_app/widgets/products_grid.dart';
 
 enum FilterOptions {
@@ -22,6 +26,18 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('My shop'),
         actions: [
+          Consumer<Cart>(
+            builder: (_, cartStore, child) => MyBadge(
+                color: Colors.blueAccent,
+                value: cartStore.itemCount.toString(),
+                top: 4,
+                right: 6,
+                child: IconButton(
+                    icon: const Icon(Icons.shopping_bag),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(CartScreen.routeName);
+                    })),
+          ),
           PopupMenuButton(
             onSelected: (FilterOptions option) {
               setState(() {
@@ -42,8 +58,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 child: Text('Show all '),
               ),
             ],
-            icon: Icon(Icons.more_vert),
-          )
+            icon: const Icon(Icons.more_vert),
+          ),
         ],
       ),
       body: ProductsGrid(isFavorites: _showOnlyFavorites),

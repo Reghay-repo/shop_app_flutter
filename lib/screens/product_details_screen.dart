@@ -18,23 +18,41 @@ class ProductDetailsScreen extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(product.title),
         ),
-        body: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                product.imageUrl,
-                fit: BoxFit.fill,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: SizedBox(
+                  height: 300,
+                  width: double.infinity,
+                  child: Image.network(
+                    product.imageUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
-            const Text(
-              'Description :',
-              style: TextStyle(fontSize: 25),
-              textAlign: TextAlign.start,
-            ),
-            Text(product.description),
-            Text('price :  ${product.price} \$'),
-          ],
+              Text(
+                '\$${product.price}',
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 20,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                width: double.infinity,
+                child: Text(
+                  product.description,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                ),
+              )
+            ],
+          ),
         ));
   }
 }
