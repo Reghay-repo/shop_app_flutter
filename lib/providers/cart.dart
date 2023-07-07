@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class CartItem {
   final String id;
   final String title;
+
   final int quantity;
   final double price;
 
@@ -49,5 +50,10 @@ class Cart with ChangeNotifier {
       total += item.price * item.quantity;
     });
     return total;
+  }
+
+  void removeItem(String id) {
+    _items.remove(id);
+    notifyListeners();
   }
 }
