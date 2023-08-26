@@ -31,6 +31,29 @@ class CartItem extends StatelessWidget {
             size: 40,
           )),
       direction: DismissDirection.endToStart,
+      confirmDismiss: (direction) {
+        return showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop(false);
+                },
+                child: const Text('No'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop(true);
+                },
+                child: const Text('Yes, remove'),
+              ),
+            ],
+            title: Text('Are you sure?'),
+            content: Text('Do you want to remove the irem from Cart ?'),
+          ),
+        );
+      },
       onDismissed: (direction) {
         Provider.of<Cart>(context, listen: false).removeItem(producId);
       },
