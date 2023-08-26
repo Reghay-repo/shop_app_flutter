@@ -21,6 +21,18 @@ class ProductItem extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
             onPressed: () {
               cart.addItem(product.id, product.title, product.price);
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text('Item added to cart !'),
+                  duration: const Duration(seconds: 2),
+                  action: SnackBarAction(
+                      label: 'Undo',
+                      onPressed: () {
+                        cart.removeSingleItemFromCart(product.id);
+                      }),
+                ),
+              );
             },
             icon: const Icon(Icons.shopping_cart),
           ),
@@ -29,6 +41,7 @@ class ProductItem extends StatelessWidget {
             icon: Icon(
                 product.isFavorite ? Icons.favorite : Icons.favorite_outline),
             onPressed: () {
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               if (product.isFavorite) {
                 var snackBar =
                     const SnackBar(content: Text('remove from favorites'));
