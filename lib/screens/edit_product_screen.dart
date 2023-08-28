@@ -15,7 +15,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
 
   @override
   void initState() {
-    _imageUrlController.addListener(_updateImage);
+    _imageFocusNode.addListener(_updateImage);
     super.initState();
   }
 
@@ -118,6 +118,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       textInputAction: TextInputAction.done,
                       keyboardType: TextInputType.url,
                       controller: _imageUrlController,
+                      focusNode: _imageFocusNode,
                     ),
                   )
                 ],
