@@ -8,7 +8,16 @@ class EditProductScreen extends StatefulWidget {
 }
 
 class _EditProductScreenState extends State<EditProductScreen> {
-  final _priceNode = FocusNode();
+  final _priceFocusNode = FocusNode();
+  final _descriptionFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _descriptionFocusNode.dispose();
+    _priceFocusNode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +31,20 @@ class _EditProductScreenState extends State<EditProductScreen> {
           child: ListView(
             children: <Widget>[
               TextFormField(
-                onFieldSubmitted: (_) {
-                  FocusScope.of(context).requestFocus(_priceNode);
-                },
                 decoration: const InputDecoration(
                     labelText: 'Title',
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)))),
                 textInputAction: TextInputAction.next,
+                onFieldSubmitted: (_) {
+                  FocusScope.of(context).requestFocus(_priceFocusNode);
+                },
               ),
               TextFormField(
-                focusNode: _priceNode,
+                focusNode: _priceFocusNode,
+                onFieldSubmitted: (_) {
+                  FocusScope.of(context).requestFocus(_descriptionFocusNode);
+                },
                 decoration: const InputDecoration(
                   labelText: 'Price',
                   border: OutlineInputBorder(
@@ -43,7 +55,17 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 ),
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.number,
-              )
+              ),
+              TextFormField(
+                maxLines: 3,
+                focusNode: _descriptionFocusNode,
+                keyboardType: TextInputType.multiline,
+                decoration: const InputDecoration(
+                    labelText: 'Description',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)))),
+                // textInputAction: TextInputAction.next,
+              ),
             ],
           ),
         ),
