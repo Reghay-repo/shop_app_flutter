@@ -51,6 +51,55 @@ class Products with ChangeNotifier {
       imageUrl:
           'https://images.pexels.com/photos/5906795/pexels-photo-5906795.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     ),
+    Product(
+      id: 'p7',
+      title: 'channel bag',
+      description: 'Ferragamo BOXYZ bag',
+      price: 700.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80',
+    ),
+    Product(
+      id: 'p8',
+      title: 'Necklace',
+      description: 'FOLLOW MY WORK ON INSTAGRAM @iamthecho',
+      price: 700.99,
+      imageUrl:
+          'https://images.unsplash.com/photo-1590548784585-643d2b9f2925?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80',
+    ),
+    Product(
+      id: 'p9',
+      title: 'dining table',
+      description: 'table for  4 people',
+      price: 70.99,
+      imageUrl:
+          'https://plus.unsplash.com/premium_photo-1661544747091-b629d1606c67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    ),
+    Product(
+      id: 'p10',
+      title: 'champoo',
+      description:
+          'Baby Care Products | Newborn & Toddler Products Online | Johnson',
+      price: 15.99,
+      imageUrl:
+          'https://www.johnsonsbaby.in/sites/jbaby_in/files/styles/medium/public/product-images/johnsons_blossom_baby_powder_200g.png',
+    ),
+    Product(
+      id: 'p11',
+      title: 'Canon camera',
+      description: 'Products | Canon Australia',
+      price: 15.99,
+      imageUrl:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwKXrExPBPZJsGMVp3X_TMALZwC41G-qZvcQ&usqp=CAU',
+    ),
+    Product(
+      id: 'p12',
+      title: 'Apple VR headset',
+      description: 'WWDC 2023: Apple launches Vision Pro & more new products',
+      price: 15.99,
+      imageUrl:
+          'https://www.techrepublic.com/wp-content/uploads/2023/06/Apple-Vison-Pro-WWDC-2023.jpg',
+    ),
   ];
 
   // var _showFavoritesOnly = false;

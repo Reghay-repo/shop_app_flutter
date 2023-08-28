@@ -30,6 +30,14 @@ class AppDrawer extends StatelessWidget {
               Navigator.of(context).pushReplacementNamed('/');
             },
           ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.browse_gallery),
+            title: Text('Manage Products'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed('/manage-products');
+            },
+          ),
         ],
       ),
     );
